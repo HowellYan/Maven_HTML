@@ -4,9 +4,15 @@
   <groupId>online_H5</groupId>
   <artifactId>online_H5</artifactId>
   <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>${project.pom.version}</version>
   <name>online_H5 Maven Webapp</name>
   <url>http://maven.apache.org</url>
+
+  <properties>
+    <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+    <project.pom.version>1.0.0-${maven.build.timestamp}</project.pom.version>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>com.google.javascript</groupId>

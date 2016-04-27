@@ -240,7 +240,7 @@ input::-webkit-input-placeholder{
   vertical-align: middle;
 }
 .see-eyes{
-  background: url("../img/new_eyes_blue.png") no-repeat;
+  background: url("../img/new_eyes_blue.png?v=${online_version}") no-repeat;
   background-position: center;
   background-size: 0.875rem
 }
@@ -272,7 +272,7 @@ textarea::-webkit-input-placeholder {
 .btn-spinner-wrap .btn-spinner {
   width: 1.25rem;
   height: 1.25rem;
-  background: url("../img/btn_spinner_default.png") no-repeat;
+  background: url("../img/btn_spinner_default.png?v=${online_version}") no-repeat;
   background-size: 1.0rem 1.0rem;
   background-position: 0.125rem 0.125rem; }
 
@@ -313,14 +313,14 @@ textarea::-webkit-input-placeholder {
 .input-wrap .btn-clear {
   width: 1.25rem;
   height: 1.25rem;
-  background: url("../img/btn_clear.png") no-repeat;
+  background: url("../img/btn_clear.png?v=${online_version}") no-repeat;
   background-position: 0.3rem 0.5rem;
   background-size: 0.5rem 0.5rem;
   display: none; }
 
 .input-wrap .btn-phone{
   width: 1.075rem;
-  background: url("../img/czzx_addresslist.png") no-repeat;
+  background: url("../img/czzx_addresslist.png?v=${online_version}") no-repeat;
   background-position: 0.125rem 0.25rem;
   background-size: 80%;
   margin-top: 0.125rem;
@@ -340,7 +340,7 @@ textarea::-webkit-input-placeholder {
 }
 .item-wrap .btn-right{
   width: 1.075rem;
-  background: url("../img/ic_arrow_right_blue.png") no-repeat;
+  background: url("../img/ic_arrow_right_blue.png?v=${online_version}") no-repeat;
   background-position: 0.125rem 0.125rem;
   background-size: 0.75rem 0.75rem;
   margin-top: 0.125rem;
@@ -348,7 +348,7 @@ textarea::-webkit-input-placeholder {
 }
 .item-wrap .btn-down{
   width: 0.8rem;
-  background: url("../img/Rounded-down.png") no-repeat;
+  background: url("../img/Rounded-down.png?v=${online_version}") no-repeat;
   background-size: 0.3rem;
   margin-top: 0.125rem;
   margin-bottom: 0.125rem;
@@ -356,7 +356,7 @@ textarea::-webkit-input-placeholder {
 }
 .input-wrap .btn-calendar,.item-wrap .btn-calendar{
   width: 1.075rem;
-  background: url("../img/ic_calendar_normal.png") no-repeat;
+  background: url("../img/ic_calendar_normal.png?v=${online_version}") no-repeat;
   background-position: 0.125rem 0.125rem;
   background-size: 0.75rem 0.75rem;
   border-left: 1px solid #7F7F7F;
@@ -456,7 +456,7 @@ textarea::-webkit-input-placeholder {
   word-wrap:break-word;
 }
 .dialogClass-title{
-  background: url(../img/h2bg.png) repeat-x;
+  background: url("../img/h2bg.png?v=${online_version}") repeat-x;
   color: white;
   padding: 0.375rem 0 0.45rem 0;
   box-shadow: 0.0rem -0.125rem 0.0rem #ffad00 inset;
@@ -498,7 +498,7 @@ textarea::-webkit-input-placeholder {
   height: 0.875rem;
   float: right;
   margin-top: -0.175rem ;
-  background: url("../img/btn_radio_off.png") repeat;
+  background: url("../img/btn_radio_off.png?v=${online_version}") repeat;
   background-size: cover;
 }
 .dialogClass-list-img-on{
@@ -506,7 +506,7 @@ textarea::-webkit-input-placeholder {
   height: 0.875rem;
   float: right;
   margin-top: -0.175rem ;
-  background: url("../img/btn_radio_on.png") repeat;
+  background: url("../img/btn_radio_on.png?v=${online_version}") repeat;
   background-size: cover;
 }
 
@@ -586,7 +586,7 @@ textarea::-webkit-input-placeholder {
 
 }
 .success-title{
-  background: #0A3350 url(../img/h2bg.png) repeat-x;
+  background: #0A3350 url("../img/h2bg.png?v=${online_version}") repeat-x;
   color: white;
   padding: 0.375rem 0 0.45rem 0;
   box-shadow: 0.0rem -0.125rem 0.0rem #ffad00 inset;
@@ -607,7 +607,7 @@ textarea::-webkit-input-placeholder {
 }
 .top_tianyibao_img{
     height: 0.375rem; width: 100%;
-    background-image: url("../img/triangle.png");
+    background-image: url("../img/triangle.png?v=${online_version}");
     background-repeat: repeat-x;
 }
 .top_tianyibao{
@@ -737,7 +737,7 @@ textarea::-webkit-input-placeholder {
 .scan-code{
   height:0.875rem;
   width:0.875rem;
-  background: url("../img/icon_scan_new.png") no-repeat;
+  background: url("../img/icon_scan_new.png?v=${online_version}") no-repeat;
   background-size: 0.875rem 0.875rem ;
   margin:0.325rem 0.25rem 0.0rem 0.0rem ;
 }
@@ -754,7 +754,7 @@ textarea::-webkit-input-placeholder {
 }
 .error651-box-1{ 
   padding-left: 5.2em;
-  background: url(../img/icon-error.png) no-repeat;
+  background: url("../img/icon-error.png?v=${online_version}") no-repeat;
   background-size: 4em;
   width: 4.525rem;
   margin: 0.75rem auto;
@@ -777,7 +777,7 @@ textarea::-webkit-input-placeholder {
   color: #FD751F;
   font-size: 0.55rem;
   padding-left: 1.3em;
-  background: url(../img/tips-icon.png) no-repeat;
+  background: url("../img/tips-icon.png?v=${online_version}") no-repeat;
   background-size: 1em;
 }
 .btn2-common-wrap{ 
@@ -857,8 +857,8 @@ textarea::-webkit-input-placeholder {
 	right: -0.1rem!important;
 }
 .balance_items_1{ width: 30%;}
-.chose{ width: 1.0rem; height: 1.0rem; background-image:url(../img/balance_off.png); background-repeat: no-repeat; background-size: 0.55rem; background-position: center; }
-.chose_on{ background-image: url(../img/balance_on.png);}
+.chose{ width: 1.0rem; height: 1.0rem; background-image:url("../img/balance_off.png?v=${online_version}"); background-repeat: no-repeat; background-size: 0.55rem; background-position: center; }
+.chose_on{ background-image: url("../img/balance_on.png?v=${online_version}");}
 .chose span{ visibility: hidden;}
 .normal-reward p{ display: none;}
 .normal-reward i{ font-style: normal;}
@@ -1103,10 +1103,10 @@ textarea::-webkit-input-placeholder {
   text-align: right;
   padding-right: 0.55rem;}
 .account-icon{  height: 1.15rem;  width: 25%;}
-.account-jfy{background:url("../img/dollar-bag.png") no-repeat center;background-size: 0.45rem; }
-.account-tyb{background:url("../img/piggy2.png") no-repeat center;background-size: 0.525rem; }
+.account-jfy{background:url("../img/dollar-bag.png?v=${online_version}") no-repeat center;background-size: 0.45rem; }
+.account-tyb{background:url("../img/piggy2.png?v=${online_version}") no-repeat center;background-size: 0.525rem; }
 .account-recharge{ line-height: 1.2rem; position: relative;}
-.account-recharge em{ display: block; width: 0.625rem; height: 1.275rem; background: url("../img/Rounded-down.png") no-repeat center;  background-size: 0.3rem;
+.account-recharge em{ display: block; width: 0.625rem; height: 1.275rem; background: url("../img/Rounded-down.png?v=${online_version}") no-repeat center;  background-size: 0.3rem;
 -webkit-transform: rotate(-90deg); position: absolute; top: 0; right: 0; }
 .account-noMoney{ color:#484848; }
 .account-noMoney .account-content{ }
@@ -1116,10 +1116,10 @@ textarea::-webkit-input-placeholder {
   background-color: #FCB672;
 }
 .pay-radio-off{ 
-    background: url(../img/circle.png) no-repeat center;
+    background: url("../img/circle.png?v=${online_version}") no-repeat center;
 }
 .pay-radio-on{ 
-    background: url(../img/circle-ok-pay.png) no-repeat center;
+    background: url("../img/circle-ok-pay.png?v=${online_version}") no-repeat center;
 }
 .pay-radio{ width: 1.625rem; background-size: 0.75rem;}
 @-webkit-keyframes xguide_down{
@@ -1204,7 +1204,7 @@ input::-webkit-input-placeholder{color: #9D9292}
 .alert_cet{width:90%; margin: 0 auto; padding: 36px 0;font-size: 20px;line-height:36px;text-align: center}
 .alert_U{border-top:1px solid #F4F4F4}
 .alert_U li {float:left; width: 50%;display: block;text-align: center;color: #ff7e00;padding: 16px 0}
-.alert_U li:nth-child(1){background: url("../img/Fline.png") repeat-y top right}
+.alert_U li:nth-child(1){background: url("../img/Fline.png?v=${online_version}") repeat-y top right}
 .alert_U li.itemHover{background: #e1e1e1}
 .mask{width:100%;height:100%; position:fixed; z-index :2; background:#000; opacity:0.5; top:0; left: 0;
   display: none}
