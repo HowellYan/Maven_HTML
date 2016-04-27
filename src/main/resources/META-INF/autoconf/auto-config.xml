@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <group name="logback">
+        <property name="log.path" />
+        <property name="log.app.name" />
+        <property name="log.level" />
+    </group>
+    <script>
+        <generate template="logback.xml.vm" destfile="logback.xml" charset="UTF-8" />
+    </script>
+</config>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>交通罚款</title>
+    <link type="text/css" rel="stylesheet" href="../lib/css/bestpay.ui.page.css?v=${online_version}" />
+    <link type="text/css" rel="stylesheet" href="../lib/css/bestpay.ui.form.css?v=${online_version}" />
+    <link rel="stylesheet" type="text/css" href="css/bestpayTrafficfines.css?v=${online_version}"/>
+</head>
+<body>
+
+
+<div id="id_flatFee_show"></div>
+<!--app 主页 start-->
+<div id="page_main" class="page"><!-- block-->
+    <div class="input-wrap cancelBorderBottom">
+   	 	<span id="city">广州</span>
+    	<span id="cardNum">粤A</span>
+        <div class="input-out padding1">
+            <input id="car_number" type="text" class="input-text" maxlength="15" placeholder="请输入车牌号">
+        </div>
+        <div class="btn-clear"></div>
+    </div>
+
+    <div class="item-wrap box cancelRadiusTop data-line" id="carType">
+        <div class="box-f1 h-raido raido-on" title="02">小型车</div>
+    	<div class="box-f1 h-raido raido-off" title="01">大型车</div>
+    </div>
+
+    <div class="input-wrap cancelBorderBottom">
+        <div class="input-out removeLine">
+            <input id="chassis_number" type="text" class="input-text" maxlength="20" placeholder="车架号">
+        </div>
+        <div class="btn-clear"></div>
+    </div>
+
+    <div class="input-wrap cancelRadiusTop data-line">
+        <div class="input-out removeLine">
+            <input id="engine_number" type="text" class="input-text" maxlength="20" placeholder="发动机号">
+        </div>
+        <div class="btn-clear"></div>
+    </div>
+
+    <div class="line-box-wrap">
+        <div class="btn-common-wrap">
+            <button id="btn_next">违章查询</button>
+        </div>
+    </div>
+    <div class="div-tips-wrap">
+        <div>提示 ：</div>
+        <div>1.现场罚单无法受理。</div>
+        <div>2.扣分项目无法受理。</div>
+        <div>3.罚款超500元无法受理。</div>
+        <div>4.跨省违章无法受理。</div>
+        <div>5.代办周期2-7个工作日，不包含周末。</div>
+    </div>
+</div>
+
+<!--违章确认-->
+<div id="page_illegal" class="page"><!--delete-->
+ 	<div class="illegal-item-wrap">
+		<div class="confirm-item_item">
+	        <div class="item_left">车主姓名</div>
+	        <div class="item_right"><span id="carOwner"></span></div>
+	    </div>
+	    <div class="confirm-item_item">
+	        <div class="item_left">违章数量</div>
+	        <div class="item_right"><span id="orderCount"></span>个</div>
+	    </div>
+    </div> 
+    <div class="tips-one">
+    <span>提示：</span>仅支持单张罚单缴纳。
+    </div>
+   
+
+    <div id="id_confirm_wrap_illegal"></div>
+
+
+	<div id="illegal_JSON" style="display:none"><!-- none-->
+	    <div class="illegal-item-wrap marginTop10">
+	        <div class="confirm-item_item">
+	            <div class="item_left">违章时间</div>
+	            <div class="item_right"><span class="violation_day">$violation_day$</span><em class="violation_hour">$violation_hour$</em></div>
+	            <span class="raido-list raido-off bl_check" data-code="$bl_check$" style="display: $hz_display$" id="chose_this"></span>
+	        </div>
+	        <div class="confirm-item_item border-bottom-none">
+	            <div class="item_left">违章地点</div>
+	            <div class="item_right padding-right">$illegal_place$</div>
+	            <em class="illegal-down illegal_list"></em>
+	        </div>
+	        <div class="sub-item">
+	        	<div class="div-top-check"></div>
+		        <div class="confirm-item_item bottom-desh">
+		            <div class="item_left">处罚单号</div>
+		            <div class="item_right">$punish_number$</div>
+		        </div>
+		        <div class="confirm-item_item">
+		            <div class="item_left">违章原因</div>
+		            <div class="item_right">$illegal_reasons$</div>
+		        </div>
+		        <div class="confirm-item_item">
+		            <div class="item_left">驾证扣分</div>
+		            <div class="item_right">$license_points$</div>
+		        </div>
+		        <div class="confirm-item_item">
+		            <div class="item_left">罚&emsp;&emsp;金</div>
+		            <div class="item_right">$penal_sum$元</div>
+		        </div>
+		        <div class="confirm-item_item">
+		            <div class="item_left">滞&ensp;纳&ensp;金</div>
+		            <div class="item_right">$overdue_fine$元</div>
+		        </div>
+		        <div class="confirm-item_item">
+		            <div class="item_left">代&ensp;办&ensp;费</div>
+		            <div class="item_right">$agency_fee$元</div>
+		        </div>
+		        <div class="confirm-item_item">
+		            <div class="item_left">代办周期</div>
+		            <div class="item_right">2-7个工作日</div>
+		        </div>
+		        <div class="confirm-item_item border-bottom-none">
+		            <div class="item_left">办理状态</div>
+		            <div class="item_right">$handling_state$</div>
+		        </div>
+		        
+	        </div>
+	    </div>
+	</div>
+
+	<div class="confirm-item_item check_hz raido-off" id="need_receipt" style="display:none;">
+        <div class="item_left">需要回执</div>
+        <input type="hidden" id="hz_or_not">
+    </div>
+
+	<div class="sendPost" id="sendPost_id">
+		<div class="div-top-check"></div>
+		<div class="sendPost-wrap">
+			<div class="input-wrap data-line">
+		        <div class="input-out">
+		            <input id="mail_recept" type="text" class="input-text" placeholder="收  件  人：请输入">
+		        </div>
+		        <div class="btn-clear"></div>
+		    </div>
+		    <div class="input-wrap data-line">
+		        <div class="input-out">
+		            <input id="mail_moblie" type="text" maxlength="11" class="input-text" placeholder="手机号码：请输入">
+		        </div>
+		        <div class="btn-clear"></div>
+		    </div>
+		    <div class="input-wrap data-line">
+		        <div class="input-out">
+		            <input id="mail_address" type="text" class="input-text" placeholder="邮寄地址：请输入">
+		        </div>
+		        <div class="btn-clear"></div>
+		    </div>
+		    <div class="div-tips-wrap red">
+			    <div>邮寄方式：快递到付</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="line-box-wrap">
+	    <div class="btn-common-wrap">
+	        <button id="btn_sure">确定</button>
+	    </div>
+	</div>		
+</div>
+
+<!-- 订单确认 start -->
+<div class="page order_comfirm"  id="order_comfirm"></div>
+<!-- 订单确认 end -->
+
+<!-- 支付成功凭证 start -->
+<div class="page floatPage"  id="page_float_dia">
+ 	<div class="floatPage_content" id="floatPageContent"></div>
+</div>
+<!-- 支付成功凭证 end -->
+
+<!-- 选择省市 -->
+<div id="page_selectPage" class="page" style="padding: 0px">
+    <div class="selectLine"></div>
+    <div class="selectDiv">
+        <div id="id_optionsBoxLeft" class="selectBoxLeft" style="overflow-y: scroll">
+        </div>
+        <div id="id_optionsBoxRight" class="selectBoxRight" style="overflow-y: scroll">
+        </div>
+    </div>
+    <div class="selectFoot" style="display: none;">
+        <div class="selectBtn" id="id_selectProBtn">确定</div>
+    </div>
+</div>
+<div class="page LocalFloat" id="page_LocalHost">
+</div>
+<script src="../lib/js/require.js?v=${online_version}"></script>
+</body>
+</html>

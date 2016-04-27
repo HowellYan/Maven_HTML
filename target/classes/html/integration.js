@@ -1,0 +1,1 @@
+var htmlTemplatesInjector={htmlTemplates:"50%"};
