@@ -1,0 +1,1 @@
+define({dummy:false,debug:true,browser:false,page:{unbund_main:{id:"page_unbund_main",title:"解绑"}},CARDTYPECODE:"2004",CODE:{COMMOSSION_ERROR:"004010"}});

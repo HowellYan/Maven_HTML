@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=320,maximum-scale=1.3,user-scalable=no,minimal-ui">
+    <!-- <meta name="Cache-Control" content="max-age=7200"/>-->
+
+    <link rel="stylesheet" href="../common/css/ui.css?v=${online_version}" />
+    <link rel="stylesheet" href="css/styles.css?v=${online_version}" />
+    <link rel="stylesheet" href="css/main.css?v=${online_version}" />
+
+    <script data-main="js/main" src="require.js?v=${online_version}" defer async="true"></script>
+    <title>选择认证类型</title>
+    <style type="text/css">
+    	input{
+			color: #5D5D5D;
+		}
+    </style>
+</head>
+<body>
+<div id="loading" class="loading"></div>
+<div id="choseShop" class="main" style="display:none;">
+	<div class="main_rz" data-code = '0'>
+		<h2>个体商户认证</h2>
+		<ul>
+			<li><em></em>营业执照或门店照片</li>
+			<li><em></em>经营者手持身份证正面、身份证正面、身份证反面</li>
+		</ul>
+	</div>
+	<div class="main_rz" data-code = '1'>
+		<h2>企业商户认证</h2>
+		<ul>
+			<li><em></em>营业执照、组织机构代码证、税务登记证/三证合一</li>
+			<li><em></em>法人身份证正面、法人身份证背面</li>
+			<li><em></em>代理人手持身份证正面、身份证反面</li>
+		</ul>
+	</div>
+	<div class="main_rz" data-code = '2'>
+		<h2>员工认证</h2>
+		<ul>
+			<li><em></em>员工证</li>
+			<li><em></em>申请人身份证正面、背面</li>
+			<li><em></em>申请人手持身份证正面</li>
+		</ul>
+	</div>
+</div>
+
+<!-- 认证 start -->
+<div id="authorityPage" class="main"><!--  style="display:block" -->
+	<input type="hidden" id="setTitle">
+    <div style="color:red;margin-left:20px;height:30px;line-height:30px;font-size:14px;display: none;">请填写真实有效的信息</div>
+    <div class="authBorder yzrz">
+        <div class="line goto" id="showSelectProfession">
+            <div class="box marginR">
+            	<input id="ahthHangYeId" type="hidden">
+            	<div class="ub-title">所属行业</div>
+                <input id="ahthHangYe" class="box-f1 fontSize14 colorBlue" type="text" readonly="readonly" placeholder="请选择"/>
+            </div>
+   		 </div>
+	</div>
+
+	<div class="authBorder yzrz">
+        <div class="line goto" id="showShoptype">
+            <div class="box marginR">
+           	    <input id="shoptypeId" type="hidden">
+            	<div class="ub-title">商铺类型</div>
+                <input id="shoptype" class="box-f1 fontSize14 colorBlue" type="text" readonly="readonly" value="有营业执照"/>
+            </div>
+   		 </div>
+	</div>
+	<div class="emtyBox borderBottom yzrz"></div>
+    <div class="ub-f1 yzrz" id="authshanghumShow">
+        <div class="authBorder ub-f1">
+            <div class="line">
+                <div class="box marginR">
+                	<div class="ub-title" id="modify_shopName">商铺名称</div>
+                    <input  id="authshanghum" class="box-f1 fontSize14" type="text" placeholder="请填写" readonly="true"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="licenceNomber" class="yzrz">
+	 	<div class="emtyBox borderBottom"></div>
+	    <div class="ub-f1">
+	        <div class="authBorder ub-f1" name = "textInput">
+	            <div id="showImgTitle_y" class="line">
+	                <div class="box marginR">
+	                	<div class="ub-title">营业执照号</div>
+	                    <input id="authyingyezhizhhm" class="box-f1 fontSize14" maxlength="18" type="text" placeholder="请填写"/>
+	                </div>
+	            </div>
+	        </div>
+	    </div>	
+    </div>
+   
+	<div class="emtyBox borderBottom yzrz"></div>
+
+    <div class="authBorder yzrz" id="authareasShow">
+        <div class="line goto">
+            <div class="box marginR">
+            	<div class="ub-title">所在地区</div>
+                <input width="80%" id="authareas" class="box-f1 fontSize14 colorBlue" type="text" readonly="readonly" placeholder="请选择" />
+            </div>
+        </div>
+    </div>
+    <div class="authBorder yzrz" name = "textInput" id="shopAddress">
+        <div class="line">
+            <div class="box marginR">
+            	<div class="ub-title" id="modify_shopAddress">商铺地址</div>
+                <input id="authdizhi" class="box-f1 fontSize14"  type="text" maxlength="64" placeholder="请填写" />
+                <div class="clearInfo"></div>
+            </div>
+        </div>
+    </div>
+    <div class="emtyBox borderBottom yzrz"></div>
+    <div class="ub-f1">
+        <div class="authBorder ub-f1" name = "textInput" id="showapplicantname_bggray">
+            <div class="line">
+                <div class="box marginR" id = "showapplicantname">
+                	<div class="ub-title" id="modify_jyz">经营者</div>
+                    <input  id="authapplyname" class="box-f1 fontSize14" type="text" placeholder="营业执照负责人一栏" />
+                    <div class="clearInfo"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="authBorder" name = "textInput" id="show_creditcard">
+        <div class="line">
+            <div class="box marginR">
+            	<div class="ub-title">身份证号码</div>
+                <input id="authIdNo" class="box-f1 fontSize14" placeholder="经营者身份证号码"  maxlength="18"/>
+                <div class="clearInfo"></div>
+            </div>
+        </div>
+    </div>
+    <div class="emtyBox borderBottom" id="yarz2"></div>
+    <div class="authBorder"  name = "textInput" id="shopmail">
+        <div class="line">
+            <div class="box marginR">
+            	<div class="ub-title">电子邮箱</div>
+                <input  id="authemail" class="box-f1 fontSize14" placeholder="请填写有效联系邮箱" type="email" maxlength="32"/>
+                <div class="clearInfo"></div>
+            </div>
+        </div>
+    </div>
+    <div id="authorityNextStepBtn" class="newBtn yzrz">下一步</div>
+    <div id="ygrz_next_Btn" class="newBtn" style="display:none;">下一步</div>
+    <div id="tybTips">
+    	<p>温馨提示：已开通添益宝的商户，为保证您的资金安全，若需要变更认证类型、申请人姓名、申请人身份证资料，请致电客服4008011888进行添益宝销户后再进行资料变更。</p>
+    </div>
+    <div style=" height:50px;width:100%;"></div>
+</div>
+
+<!-- 商户名称 -->
+<div class = "main uiSty"   id="merchantNamePage">
+    <div class="ub ub-f1" style="margin-top:10px; background:#FFF;">
+        <div id="merchantNameImg" class="ub-f1">
+            <img src="images/shopName.png" style="width:98%;margin:0px auto ; height:auto; display:none "   id="merchantNameInfo_img"/>
+            <img src="images/shopName2.png" style="width:98%;margin:0px auto ; height:auto; "   id="merchantNameInfo2_img"/>
+            <p style="width:100%;text-align: center ;margin-top: 15px;padding-bottom: 10px;">照片示例</p>
+        </div>
+    </div>
+
+    <div id="merchantNameInfo" class="ub-f1" style="display:none;">
+        <p style="width:95%; margin: 20px 10px 20px 10px;color:#5E5E5E;">1、商户名称须与店铺名称一致。</p>
+		<p style="width:95%; margin: 20px 10px 20px 10px;color:#5E5E5E;">2、如商铺为不可区分店铺名称的统一连锁品牌，填写规则为：品牌名称+路名+厅（店）/数字编号，加以区分，如:中国电信南门路1店或天翼南门路1店。</p>
+    </div>
+    <div id="merchantNameInfo2" class="ub-f1">
+        <p style="width:95%; margin: 20px 10px 20px 10px;color:#5E5E5E;">请参照图中红框所示，填写您营业执照“名称”一栏信息</p>
+    </div>
+
+
+
+    <div class="ub ub-f1">
+        <div class="authBorder ub-f1 selectInputDiv" style="margin-top:0px;" name = "textInput">
+            <div class="ub line">
+                <div class="ub-f1" style="margin-right:10px;">
+                	<!--<div onclick="$('#merchantName').focus()" id="merchantName_showTitle" style="position: absolute;color: #5D5D5D;z-index: 100;">请输入商户名称</div>-->
+     
+                    <input id="merchantName" class="box-f1 fontSize14"  type="text" maxlength="32" placeholder="请输入商户名称" />
+                	<div class="clearInfo rightModify"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmMerchantName" class="newBtn">确定</div>
+    <div class="addHeight"></div>
+</div>
+
+<!-- 申请人姓名 -->
+<div class = "main uiSty" id="applicantNamePage">
+    <div class="ub ub-f1" style="margin-top:10px; background:#FFF;">
+        <div id="applicantNameImg" class="ub-f1">
+            <img src="images/jyName.png" style="width:98%;margin:0px auto ; height:auto; " />
+            <p style="width:100%;text-align: center;margin-top: 15px;padding-bottom: 10px;">照片示例</p>
+        </div>
+    </div>
+    <div id="applicantNameInfo" class="ub-f1">
+        <p style="width:95%; margin: 20px 10px 10px 10px;color:#5E5E5E;">请参照图中红框所示，填写您营业执照中“经营者”一栏信息。</p>
+    </div>
+
+    <div class="ub ub-f1">
+        <div class="authBorder ub-f1 selectInputDiv" style="margin-top:0px;">
+            <div class="ub line" name = "textInput" >
+                <div class="ub-f1" style="margin-right:10px;">
+					<input id="applicantName" class="box-f1 fontSize14"  type="text" maxlength="64" placeholder="请输入姓名" autofocus />
+               		<div class="clearInfo rightModify"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmApplicantName" class="newBtn">确定</div>
+    <div class="addHeight"></div>
+</div>
+
+<!-- 地市选择 -->
+<div id="authselectdizPage"  class = "main uiSty">
+    <div class="ub ub-f1" style="margin-top:10px;margin-bottom: 50px;">
+        <div id="authprovice" class="ub-f1" style="text-align:center; width:33%; border:1px solid gainsboro;height:auto; ">
+            <div class="proviceCity">广东</div>
+        </div>
+        <div  id="authcity" class="ub-f1"style="text-align:center;width:33%;border:1px solid gainsboro;height:auto;">
+        </div>
+        <div  id="authdistrict" class="ub-f1"style="text-align:center;width:33%;border:1px solid gainsboro;height:auto;">
+        </div>
+    </div>
+    <div id="confirmCity" class="newBtn" style="width:95%;margin-right:5%; position:fixed; bottom:0px;">确定</div>
+</div>
+
+<!-- 填写所属公司 -->
+<div id="company_code"  class = "main uiSty">
+    请输入所属企业代码：
+    <div class="ub ub-f1">
+        <div class="authBorder ub-f1 selectInputDiv" style="margin-top:10px;border:1px solid #eeeeee;" name = "textInput">
+            <div class="ub line">
+                <div class="ub-f1" style="margin-right:10px;">
+					<input id="company_code_val" class="box-f1 fontSize14"  type="text" maxlength="64" autofocus />
+               		<div class="clearInfo rightModify"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="company_next" class="newBtn" style="margin-top: 30px;">下一步</div>
+</div>
+
+<!-- 查询企业名称 SAut004 -->
+<div id="company_chackout"  class = "main uiSty">
+    <p class="company_p1" id="companyName">所属企业：<span id="SAut004_val"></span></p>
+    <div id="company_chackout_next" class="newBtn" style="margin-top: 30px;">下一步</div>
+    <p class="company_p2">如更改所属企业，请拨打客服电话<br><span>4008-0-11888</span></p>
+</div>
+
+<!-- 认证 next—01 -->
+<div id="nextAuthorityPage" class="main">
+	<div class="emtyBox borderBottom"></div>
+
+    <div id="geRen">
+
+
+    <div class="ub ub-f1">
+        <div class="authBorder ub-f1" id="licencePIC">
+        	<div class="fileInput" style="display: none;">
+                    <a id="image11" name="upImage" class="image"  />1</a><span id="image11LogId" style="display:none;"></span>
+                    <input class="upFileBtn" type="button" value="上传图片" onclick="$('#image11').click()" />
+            </div>
+            <div id="showImgTitle11" class="ub line"  style="margin-right:10px; ">
+                <div  id="upfileResult11" class="rzfontsty" style="font-weight:normal;font-size: 16px;">
+                	营业执照
+                    <img id="okImg11" class="icon_done"  src="images/icon_done.png" />
+                    <img id="noneImg11" class="icon_go" src="images/icon_go.png"  />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ub ub-f1">
+        <div class="authBorder ub-f1" id="shopPIC" style="display:none;">
+        	<div class="fileInput" style="display: none;">
+                    <a id="image14" name="upImage" class="image"  />14</a><span id="image14LogId" style="display:none;"></span>
+                    <input class="upFileBtn" type="button" value="上传图片" onclick="$('#image14').click()" />
+            </div>
+            <div id="showImgTitle14" class="ub line"  style="margin-right:10px; ">
+                <div  id="upfileResult14" class="rzfontsty" style="font-weight:normal;font-size: 16px;">
+                	上传商铺照片
+                    <img id="okImg14" class="icon_done"  src="images/icon_done.png" />
+                    <img id="noneImg14" class="icon_go" src="images/icon_go.png"  />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="emtyBox borderBottom"></div>
+    <div class="ub ub-f1">
+        <div class="authBorder ub-f1">
+         	<div class="fileInput" style="display: none;">
+                    <a id="image1" name="upImage" class="image"  />4</a><span id="image1LogId" style="display:none;"></span>
+                    <input class="upFileBtn" type="button" value="上传图片" onclick="$('#image1').click()" />
+            </div>
+            <div id="showImgTitle1" class="ub line"  style="margin-right:10px;">
+                <div id="upfileResult1" class="rzfontsty" style="font-weight:normal;font-size: 15px;">经营者手持身份证正面
+                    <img id="okImg1" class="icon_done"  src="images/icon_done.png" />
+                    <img id="noneImg1" class="icon_go" src="images/icon_go.png"  />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="emtyBox borderBottom"></div>
+    <div class="ub ub-f1"   >
+        <div class="authBorder ub-f1">
+        	<div class="fileInput" style="display: none;">
+                    <a id="image13" name="upImage" class="image"  />9</a><span id="image13LogId" style="display:none;"></span>
+                    <input class="upFileBtn" type="button" value="上传图片" onclick="$('#image13').click()" />
+                    <img  style = "display:none;float:right;height:70%;width:auto;margin-top:11px;"  src="images/triangle.png" />
+            </div>
+            <div id="showImgTitle13" class="ub line"  style="margin-right:10px;">
+                <div  id="upfileResult13" class="rzfontsty" style="font-weight:normal;font-size: 16px;">经营者身份证正面
+                    <img id="okImg13" class="icon_done"  src="images/icon_done.png" />
+                    <img id="noneImg13" class="icon_go" src="images/icon_go.png"  />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="emtyBox borderBottom"></div>
+    <div class="ub ub-f1"   >
+        <div class="authBorder ub-f1">
+        	<div class="fileInput" style="display: none;">
+                    <a id="image2" name="upImage" class="image" />5</a><span id="image2LogId" style="display:none;"></span>
+                    <input class="upFileBtn" type="button" value="上传图片" onclick="$('#image2').click()" />
+                    <img  style = "display:none;float:right;height:70%;width:auto;margin-top:11px;"  src="images/triangle.png" />
+            </div>
+            <div id="showImgTitle2" class="ub line"  style="margin-right:10px;">
+                <div  id="upfileResult2" class="rzfontsty" style="font-weight:normal;font-size: 16px;">经营者身份证反面
+                    <img id="okImg2" class="icon_done"  src="images/icon_done.png" />
+                    <img id="noneImg2" class="icon_go" src="images/icon_go.png"  />
+                </div>
+            </div>
+        </div>
+    </div>
+     </div>
+     <!--个人-->
+
+     <!--企业-->
+    <div id="qiYe" style="display:none;">
+
+    <div class="ub ub-f1" id="set321">
+        <div class="authBorder ub-f1">
+            <div class="ub line"  style="margin-right:10px; ">
+                <div class="rzfontsty" style="font-weight:normal;font-size: 16px;">
+                	是否三证合一
+                	<div class="is3to1" id="set321_val">否</div>
+                    <img class="icon_go" src="images/icon_go.png"  />
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<div id="ture_321">
+		<div class="emtyBox borderBottom"></div>
+	    <div class="ub ub-f1">
+	        <div class="authBorder ub-f1">
+	        	<div class="fileInput" style="display: none;">
+	                    <a id="image12" name="upImage" class="image"  />12</a><span id="image12LogId" style="display:none;"></span>
+	                    <input class="upFileBtn" type="button" value="上传图片"  onclick="$('#image12').click()"/>
+	            </div>
+	            <div id="showImgTitle12" class="ub line"  style="margin-right:10px; ">
+	                <div  id="upfileResult12" class="rzfontsty" style="font-weight:normal;font-size: 16px;">
+	                	三证合一
+	                    <img id="okImg12" class="icon_done"  src="images/icon_done.png" />
+	                    <img id="noneImg12" class="icon_go" src="images/icon_go.png" />
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<div id="false_321">
+		<div class="emtyBox borderBottom"></div>
+	    <div class="ub ub-f1">
+	        <div class="authBorder ub-f1">
+	        	<div class="fileInput" style="display: none;">
+	                    <a id="image" name="upImage" class="image"  />8</a><span id="imageLogId" style="display:none;"></span>
+	                    <input class="upFileBtn" type="button" value="上传图片" onclick="$('#image').click()" />
+	            </div>
+	            <div id="showImgTitle" class="ub line"  style="margin-right:10px; ">
+	                <div  id="upfileResult" class="rzfontsty" style="font-weight:normal;font-size: 16px;">
+	                	营业执照
+	                    <img id="okImg" class="icon_done"  src="images/icon_done.png" />
+	                    <img id="noneImg" class="icon_go" src="images/icon_go.png"  />
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+
+		<div class="emtyBox borderBottom"></div>
+	    <div class="ub ub-f1"   style="display:none;">
+		    <div class="authBorder ub-f1">
+		    	 <div class="fileInput" style="display: none;">
+		                <a id="image3" name="upImage" class="image"  />2</a><span id="image3LogId" style="display:none;"></span>
+		                <input class="upFileBtn" type="button" value="上传图片" onclick="$('#image3').click()" />
+		                <img   style = "display:none;float:right;height:70%;width:auto;margin-top:11px;"  src="images/triangle.png" />
+		        </div>
+		        <div id="showImgTitle3" class="ub line"  style="margin-right:10px;">
+		            <div id="upfileResult3" class="rzfontsty" style="font-weight:normal;font-size: 16px;">组织机构代码证
+		                <img id="okImg3" class="icon_done"  src="images/icon_done.png" />
+		                <img id="noneImg3" class="icon_go" src="images/icon_go.png"  />
+		            </div>
+		        </div>
+		    </div>
+		</div>
+
+		<div class="emtyBox borderBottom"></div>
+	    <div class="ub ub-f1" >
+	        <div class="authBorder ub-f1">
+	        	<div class="fileInput" style="display: none;">
+	                    <a id="image4" name="upImage" class="image"  />3</a><span id="image4LogId" style="display:none;"></span>
+	                    <input class="upFileBtn" type="button" value="上传图片" onclick="$('#image4').click()" />
+	            </div>
+	            <div id="showImgTitle4" class="ub line"  style="margin-right:10px;">
+	                <div id="upfileResult4" class="rzfontsty" style="font-weight:normal;font-size: 16px;">税务登记证
+	                    <img id="okImg4" class="icon_done"  src="images/icon_done.png" />
+	                    <img id="noneImg4" class="icon_go" src="images/icon_go.png"  />
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	
+    <div class="emtyBox borderBottom"></div>
+ 	<div class="ub ub-f1"   style="display:none;">
+        <div class="authBorder ub-f1">
+        	<div class="fileInput" style="display: none;">
+                    <a id="image5" name="upImage" class="image"  />6</a><span id="image5LogId" style="display:none;"></span>
+                    <input class="upFileBtn" type="button" value="上传图片" onclick="$('#image5').click()" />
+                    <img   style = "display:none;float:right;height:70%;width:auto;margin-top:11px;"  src="images/triangle.png" />
+             </div>
+            <div  id="showImgTitle5" class="ub line"  style="margin-right:10px;">
+                <div  id="upfileResult5" class="rzfontsty" style="font-weight:normal;font-size: 16px;">法人身份证正面
+                    <img id="okImg5" class="icon_done"  src="images/icon_done.png" />
+                    <img id="noneImg5" class="icon_go" src="images/icon_go.png"  />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="emtyBox borderBottom"></div>
+    <div class="ub ub-f1" >
+        <div class="authBorder ub-f1">
+        	<div class="fileInput" style="display: none;">
+                    <a id="image6" name="upImage" class="image"  />7</a><span id="image6LogId" style="display:none;"></span>
+                    <input class="upFileBtn" type="button" value="上传图片" onclick="$('#image6').click()" />
+            </div>
+            <div id="showImgTitle6"  class="ub line"  style="margin-right:10px;">
+                <div id="upfileResult6" class="rzfontsty" style="font-weight:normal;font-size: 16px;">法人身份证反面
+                    <img id="okImg6" class="icon_done"  src="images/icon_done.png" />
+                    <img id="noneImg6" class="icon_go" src="images/icon_go.png"  />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="emtyBox borderBottom"></div>
+    <div class="ub ub-f1">
+        <div class="authBorder ub-f1">
+        	<div class="fileInput" style="display: none;">
+                    <a id="image10" name="upImage" class="image"  />13</a><span id="image10LogId" style="display:none;"></span>
+                    <input class="upFileBtn" type="button" value="上传图片" onclick="$('#image10').click()" />
+                    <img   style = "display:none;float:right;height:70%;width:auto;margin-top:11px;"  src="images/triangle.png" />
+            </div>
+            <div id="showImgTitle10" class="ub line"  style="margin-right:10px;">       
+                <div id="upfileResult10" class="rzfontsty" style="font-weight:normal;font-size: 16px;">代理人身份证正面
+                    <img id="okImg10" class="icon_done"  src="images/icon_done.png" />
+                    <img id="noneImg10" class="icon_go" src="images/icon_go.png"  />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="emtyBox borderBottom"></div>
+    <div class="ub ub-f1">
+        <div class="authBorder ub-f1">
+        	<div class="fileInput" style="display: none;">
+                    <a id="image8" name="upImage" class="image"  />15</a><span id="image8LogId" style="display:none;"></span>
+                    <input class="upFileBtn" type="button" value="上传图片" onclick="$('#image8').click()" />
+                    <img   style = "display:none;float:right;height:70%;width:auto;margin-top:11px;"  src="images/triangle.png" />
+            </div>
+            <div id="showImgTitle8" class="ub line"  style="margin-right:10px;">       
+                <div id="upfileResult8" class="rzfontsty" style="font-weight:normal;font-size: 16px;">代理人身份证反面
+                    <img id="okImg8" class="icon_done"  src="images/icon_done.png" />
+                    <img id="noneImg8" class="icon_go" src="images/icon_go.png"  />
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<div class="emtyBox borderBottom"></div>
+    <div class="ub ub-f1"  >
+        <div class="authBorder ub-f1">
+        	<div class="fileInput" style="display: none;">
+                    <a id="image7" name="upImage" class="image" />11</a><span id="image7LogId" style="display:none;"></span>
+                    <input class="upFileBtn" type="button" value="上传图片" onclick="$('#image7').click()" />
+            </div>
+            <div id="showImgTitle7" class="ub line"  style="margin-right:10px;">               
+                <div id="upfileResult7" class="rzfontsty" style="font-weight:normal;font-size: 15px;">代理人手持身份证正面
+                    <img id="okImg7" class="icon_done"  src="images/icon_done.png" />
+                    <img id="noneImg7" class="icon_go" src="images/icon_go.png"  />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--员工认证-->
+<div id="yuangong">
+    <div class="ub ub-f1">
+        <div class="authBorder ub-f1">
+        	<div class="fileInput" style="display: none;">
+                    <a id="image15" name="upImage" class="image"  />16</a><span id="image15LogId" style="display:none;"></span>
+                    <input class="upFileBtn" type="button" value="上传图片" onclick="$('#image15').click()" />
+            </div>
+            <div id="showImgTitle15" class="ub line"  style="margin-right:10px; ">
+                <div  id="upfileResult15" class="rzfontsty" style="font-weight:normal;font-size: 16px;">
+                	工作证明
+                    <img id="okImg15" class="icon_done"  src="images/icon_done.png" />
+                    <img id="noneImg15" class="icon_go" src="images/icon_go.png"  />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="emtyBox borderBottom"></div>
+    <div class="ub ub-f1">
+        <div class="authBorder ub-f1">
+         	<div class="fileInput" style="display: none;">
+                    <a id="image16" name="upImage" class="image"  />19</a><span id="image16LogId" style="display:none;"></span>
+                    <input class="upFileBtn" type="button" value="上传图片" onclick="$('#image16').click()" />
+            </div>
+            <div id="showImgTitle16" class="ub line"  style="margin-right:10px;">
+                <div id="upfileResult16" class="rzfontsty" style="font-weight:normal;font-size: 15px;">手持身份证正面
+                    <img id="okImg16" class="icon_done"  src="images/icon_done.png" />
+                    <img id="noneImg16" class="icon_go" src="images/icon_go.png"  />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="emtyBox borderBottom"></div>
+    <div class="ub ub-f1"   >
+        <div class="authBorder ub-f1">
+        	<div class="fileInput" style="display: none;">
+                    <a id="image17" name="upImage" class="image"  />17</a><span id="image17LogId" style="display:none;"></span>
+                    <input class="upFileBtn" type="button" value="上传图片" onclick="$('#image17').click()" />
+                    <img  style = "display:none;float:right;height:70%;width:auto;margin-top:11px;"  src="images/triangle.png" />
+            </div>
+            <div id="showImgTitle17" class="ub line"  style="margin-right:10px;">
+                <div  id="upfileResult17" class="rzfontsty" style="font-weight:normal;font-size: 16px;">身份证正面
+                    <img id="okImg17" class="icon_done"  src="images/icon_done.png" />
+                    <img id="noneImg17" class="icon_go" src="images/icon_go.png"  />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="emtyBox borderBottom"></div>
+    <div class="ub ub-f1"   >
+        <div class="authBorder ub-f1">
+        	<div class="fileInput" style="display: none;">
+                    <a id="image18" name="upImage" class="image" />18</a><span id="image18LogId" style="display:none;"></span>
+                    <input class="upFileBtn" type="button" value="上传图片" onclick="$('#imag18').click()" />
+                    <img  style = "display:none;float:right;height:70%;width:auto;margin-top:11px;"  src="images/triangle.png" />
+            </div>
+            <div id="showImgTitle18" class="ub line"  style="margin-right:10px;">
+                <div  id="upfileResult18" class="rzfontsty" style="font-weight:normal;font-size: 16px;">身份证反面
+                    <img id="okImg18" class="icon_done"  src="images/icon_done.png" />
+                    <img id="noneImg18" class="icon_go" src="images/icon_go.png"  />
+                </div>
+            </div>
+        </div>
+    </div>
+     </div>
+     <!--员工认证-->
+
+    <div class="cont_T orange_circle boxbox" id="kaotong_agreement">
+        <div class="c_grid boxbox" id="ornotkaitong" style="background: none;border:none; margin-top: 10px">
+            <div class="c_main c_sub_main" style="height: auto">
+                <div class="main_wrap xieyi">
+                   同步开通添益宝理财
+                </div>
+            </div>
+            <div class="c_sub c_sub_bg_current ornotagreement" id="ornotagreement"></div>
+        </div>
+        <div class="c_grid boxbox showxieyi" id="" style="background: none;border:none; margin-top: 10px">
+            <div class="c_main c_sub_main" style="height: auto">
+                <div class="main_wrap xieyi">
+                    我已阅读并同意<span class="business_blue"><span id="business_record">《添益宝业务（企业版）服务声明》</span>、<span id="business_know">《基金直销电子交易服务协议》</span>、<span id="business_fuwu">《证券投资基金投资人权益须知》</span></span>
+                </div>
+            </div>
+            <div class="c_sub c_sub_bg_current agreement" id="agreement"></div>
+        </div>
+    </div>
+    <div  id = "autoNextTwoButton" class="newBtn">提交申请</div>
+    <div  id = "qiyeRenZhengConfirm" class="newBtn">提交申请</div>
+    <div  id = "yuangongConfirm" class="newBtn">提交申请</div>
+
+    <div style=" height:200px;width:100%;"></div>
+</div>
+
+<div class="alert_3to1" id="alert_3to1">
+	<div class="wrap_3to1">
+		<div class="detail_3to1">
+			<h2>什么是三证合一？</h2>
+			<p>所谓“三证合一”，<br>就是将企业依次申请的工商营业执照、组织机构代码证和税务登记证三证合为一证。</p>
+		</div>
+		<div class="yes_3to1" id="alert_3to1_yes">是</div>
+		<div class="no_3to1" id="alert_3to1_no">否</div>
+	</div>
+</div>
+
+<!--协议-->
+<div class="record_father" id="page_record_father">
+    <div class="fat_bg"></div>
+    <div class="father_btn">
+        <div class="father">
+            <!--添益宝业务（企业版）服务声明-->
+            <div id="page_record" class="record">
+            </div>
+            <!--证券投资基金投资人权益须知-->
+            <div id="page_know" class="record">
+            </div>
+            <!--基金直销电子交易服务协议-->
+            <div id="page_fuwu" class="record">
+            </div>
+            <div class="cont_btn cont_btn_percent95"><a href="#" id="fat_btn" style="font-size: 1.1em">返回</a></div>
+            <div style=" height:200px;width:100%;"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- alert弹框  用户选择所选行业 -->
+<div id="auth_profession" class="uiSty" style="display:none;">
+		<div class="bg" style="position: fixed;" ontouchmove="notouchmove(event)"></div>
+		<div class="selectBank" style="top:5%;position: fixed;">
+	        <div class="ub" style="background-color: #0A324C;">
+	            <div class="title">请选择所属行业</div>
+	        </div>
+	        <div class="detail-inner" id = "professionItems">
+	            <div class="authBorder">
+	                <div class="ub line" id="01" onclick="selectProfession('01','零售连锁')">零售连锁<img src="images/btn_radio_off_pressed.png" style="margin-top: 9px;height:30px;width:auto; right:10px; position:absolute;" /></div>
+	            </div>
+	            <div class="authBorder">
+	                <div class="ub line" id="02" onclick="selectProfession('02','通讯')">通讯<img src="images/btn_radio_off_pressed.png" style="margin-top: 9px;height:30px;width:auto; right:10px; position:absolute;" /></div>
+	            </div>
+	            <div class="authBorder">
+	                <div class="ub line" id="03" onclick="selectProfession('03','证券投资')">证券投资<img src="images/btn_radio_off_pressed.png" style="margin-top: 9px;height:30px;width:auto; right:10px; position:absolute;" /></div>
+	            </div>
+	            <div class="authBorder">
+	                <div class="ub line" id="04" onclick="selectProfession('04','快消品')">快消品<img src="images/btn_radio_off_pressed.png" style="margin-top: 9px;height:30px;width:auto; right:10px; position:absolute;" /></div>
+	            </div>
+	            <div class="authBorder">
+	                <div class="ub line" id="05" onclick="selectProfession('05','耐用品')">耐用品<img src="images/btn_radio_off_pressed.png" style="margin-top: 9px;height:30px;width:auto; right:10px; position:absolute;" /></div>
+	            </div>
+	            <div class="authBorder">
+	                <div class="ub line" id="06" onclick="selectProfession('06','物流')">物流<img src="images/btn_radio_off_pressed.png" style="margin-top: 9px;height:30px;width:auto; right:10px; position:absolute;" /></div>
+	            </div>
+	            <div class="authBorder">
+	                <div class="ub line" id="07" onclick="selectProfession('07','商旅')">商旅<img src="images/btn_radio_off_pressed.png" style="margin-top: 9px;height:30px;width:auto; right:10px; position:absolute;" /></div>
+	            </div>
+	            <div class="authBorder">
+	                <div class="ub line" id="08" onclick="selectProfession('08','保险')">保险<img src="images/btn_radio_off_pressed.png" style="margin-top: 9px;height:30px;width:auto; right:10px; position:absolute;" /></div>
+	            </div>
+	            <div class="authBorder">
+	                <div class="ub line" id="09" onclick="selectProfession('09','电子商务')">电子商务<img src="images/btn_radio_off_pressed.png" style="margin-top: 9px;height:30px;width:auto; right:10px; position:absolute;" /></div>
+	            </div>
+	            <div class="authBorder">
+	                <div class="ub line" id="10" onclick="selectProfession('10','外贸')">外贸<img src="images/btn_radio_off_pressed.png" style="margin-top: 9px;height:30px;width:auto; right:10px; position:absolute;" /></div>
+	            </div>
+	            <div class="authBorder">
+	                <div class="ub line" id="11" onclick="selectProfession('11','教育')">教育<img src="images/btn_radio_off_pressed.png" style="margin-top: 9px;height:30px;width:auto; right:10px; position:absolute;" /></div>
+	            </div>
+	            <div class="authBorder">
+	                <div class="ub line" id="12" onclick="selectProfession('12','其他')">其他<img src="images/btn_radio_off_pressed.png" style="margin-top: 9px;height:30px;width:auto; right:10px; position:absolute;" /></div>
+	            </div>
+	    	</div>
+	  </div>
+</div>
+
+<!-- alert弹框  有无营业执照 -->
+<div id="haveLicense" class="uiSty" style="display:none;">
+		<div class="bg" style="position: fixed;" ontouchmove="notouchmove(event)"></div>
+		<div class="selectBank_license">
+	        <div class="ub" style="background-color: #0A324C;">
+	            <div class="title">请选择</div>
+	        </div>
+	        <div class="detail-inner" id = "haveLicenseItems">
+	            <div class="authBorder">
+	                <div class="ub line" id="01" onclick="selectShoptype('01','有营业执照')">有营业执照<img src="images/btn_radio_off_pressed.png" style="margin-top: 9px;height:30px;width:auto; right:10px; position:absolute;" /></div>
+	            </div>
+	            <div class="authBorder">
+	                <div class="ub line" id="02" onclick="selectShoptype('02','无营业执照')">无营业执照<img src="images/btn_radio_off_pressed.png" style="margin-top: 9px;height:30px;width:auto; right:10px; position:absolute;" /></div>
+	            </div>
+	    	</div>
+	  </div>
+</div>
+
+<!-- alert弹框 -->
+<div id="ch_alert" style="display:none;"><!-- alert弹框 -->
+    <div class="bg" ontouchmove="notouchmove(event)"></div>
+    <div class="detail" style="width: 80%; margin-left: 10%;">
+        <div class="detail-title">
+            <div class="detail-title-text">您好</div>
+        </div>
+        <div class="detail-inner">
+            <div id="chalertmsg" class="confirmpage">test</div>
+            <div class="btn-line ub-pc" style="margin-bottom:10px;">
+                <div id="chAlertBtn" class="confsty" style="margin-left:0px;background-color:#6FA0EA;">确认</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="ch_dialog" style="display:none;"  ><!-- dialog框 -->
+    <div class="bg" ontouchmove="notouchmove(event)"></div>
+    <div class="detail" style="width: 50%; margin-left: 25%;border:1px solid ;">
+        <div class="detail-inner">
+            <div class="btn-line ub-pc" style="margin-bottom: 20px;">
+                <img src="images/loading.gif" style="width:20%; height:auto;">
+                <!-- info show position -->
+                <span id="loadingInfo" style="" >...</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 点击"?"时，查看营业执照编号图片-->
+<div id="yingYeNoPicDiv" class="uiSty" style="display: none;"><!-- style="display: none;" -->
+    <div>
+        <div class="detail-inner">
+            <div class="btn-line ub-pc">
+                <img src="images/gerenNO.png"   style="width: 100%; height: auto;" id="gerenShow">
+                <img src="images/qiyeNO.png"   style="width: 100%; height: auto;" id="qiyeShow">
+            </div>
+            <div style="margin-top: 15px;padding-bottom: 10px;" align="center">照片示例</div>
+        </div>
+        <div style="font-size: 14px;margin: 20px 10px 20px 10px;" >请参照图中红框所示，填写您营业执照“注册号”一栏信息。</div>
+   		<div class="authBorder ub-f1" style="margin-top:10px;">
+            <div id="showImgTitle_y" class="ub line">
+                <div class="ub-f1" style="margin-right:10px;">
+                    <input id="authyingyezhizhhm_back" class="ub-f1 logininput" maxlength="18" style="width:100%;padding-left:0px;" type="text" placeholder="请输入营业执照注册号"/>
+                    <img id="id_clearauthyingyezhizhhm_back" src="images/clsInput.png"  style=" position: absolute; top:14px;right:0px;display:none; " width="22" height="22"/>
+                </div>
+            </div>
+        </div>
+        <div id = "autoNextTwoButton_back" class="newBtn">确定</div>
+    </div>
+    <div class="addHeight"></div>
+</div>
+
+
+<div id="infoDialog" >
+    <div class="bg" ontouchmove="notouchmove(event)"></div>
+</div>
+
+
+</body>
+</html>

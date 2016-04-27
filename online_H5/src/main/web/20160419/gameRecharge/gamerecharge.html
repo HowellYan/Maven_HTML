@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+    <meta name="format-detection" content="telephone=no"/>
+    <link type="text/css" rel="stylesheet" href="../lib/css/bestpay.ui.page.css?v=${online_version}" />
+    <link type="text/css" rel="stylesheet" href="../lib/css/bestpay.ui.form.css?v=${online_version}" />
+    <link rel="stylesheet" type="text/css" href="css/gamerecharge.css?v=${online_version}"/>
+	<title>游戏充值</title>
+</head>
+    <body>
+    <!-- app 主页 start -->
+    <div id="page_main" class="page">
+   	    <div id="brg_amount" class="block-radio-group">
+            <div class="block-radio block-radio-normal" data-value="zc" id="game_pay">游戏直充</div>
+            <div class="block-radio block-radio-normal" data-value="dk" id="game_card">游戏点卡</div>
+        </div>
+        <div id="yxzc">
+	        <div id="game_name" class="item-wrap data-line">
+	        	<span>游戏名称</span>
+			    <div class="item-out box" >
+			        <div id="game_name_val">请选择</div>
+			    </div>
+			    <div class="btn-down"></div>
+			</div>
+			<div id="game_username" class="input-wrap data-line">
+				<span>游戏账号</span>
+			    <div class="input-out">
+			        <input id="game_username_val" type="text" maxlength="30" class="input-text" placeholder="请输入">
+			    </div>
+			    <div class="btn-clear"></div>
+			</div>
+			<div class="line-box-wrap">
+	            <div class="btn-common-wrap">
+	                <button id="btn_next">下一步</button>
+	            </div>
+	        </div>
+	        <!--<div class="div-tips-wrap tip2" id="tip_zc">
+	        <div>温馨提示：</div>
+			1.请在账户中心的订单查询页面，查看交易结果和订单明细，如订单超时，请联系交费易客服。
+			</div>
+			<div class="div-tips-wrap tip2" id="tip_dk" style="display:none">
+		    <div>温馨提示 ：</div>
+		    <div>1.使用“天下通卡”进行充值。可登陆天下通网站www.txtong.cn充值，网易、搜狐、盛大、世纪天成、QQ、魔兽、完美、光宇、米米、九游、征途巨人，立即到账。</div>
+		    <div>2.请在账户中心的订单查询页面，查看交易结果和订单明细，如订单超时未完成，请联系交费易客服。</div>-->
+		</div>
+		
+	    <div class="data-line"  id="game_card_info" style="display:none;">
+	    	<div class="item-wrap cancelBorderBottom">
+			    <div class="item-out box colorGainsboro">
+			        <div>天下通卡</div>
+			    </div>
+			    <div class="btn-down"></div>
+			</div>
+	        <div id="card_pay_select_box" class="item-wrap cancelRadiusTop cancelRadiusBottom">
+			    <div class="item-out box">
+			        <div id="card_pay_select_box_val">10元</div>
+			    </div>
+			    <div class="btn-down"></div>
+			</div>
+			<div class="input-wrap cancelRadiusTop greenBorder data-line">
+				<span>顾客手机</span>
+			    <div class="input-out">
+			        <input id="mobile_dk" type="tel" maxlength="11" class="input-text" placeholder="选填">
+			    </div>
+			    <div class="btn-clear"></div>
+			</div>
+			<div class="phoneTips">
+			    系统自动向顾客发送短信交易凭证。
+			</div>
+		    <div class="line-box-wrap">
+	            <div class="btn-common-wrap">
+	                <button id="confirm_buy">确定</button>
+	            </div>
+	        </div>
+		    <!--<div class="div-tips-wrap">
+			    <div>温馨提示 ：</div>
+			    <div>1.使用“天下通卡”进行充值。可登陆天下通网站www.txtong.cn充值，网易、搜狐、盛大、世纪天成、QQ、魔兽、完美、光宇、米米、九游、征途巨人，立即到账。</div>
+			    <div>2.请在账户中心的订单查询页面，查看交易结果和订单明细，如订单超时未完成，请联系交费易客服。</div>
+			</div>-->
+	    </div>
+	    
+    </div>
+    <!-- app 主页 end -->
+
+    <!--游戏直充页面 start-->
+    <div class="page"  id="game_pay_info">
+		<div id="zw_username" class="input-wrap cancelRadius" style="display:none;">
+			<span>战网账号</span>
+		    <div class="input-out">
+		        <input id="zw_val" type="text" maxlength="30" class="input-text" placeholder="请输入">
+		    </div>
+		    <div class="btn-clear"></div>
+		</div>
+		<div id="game_area" class="item-wrap cancelRadius margin-1" style="display:none;">
+			<span>游戏大区</span>
+		    <div class="item-out box">
+		        <div id="game_area_val" class="box-f1 hideLong">请选择</div>
+		    </div>
+		    <div class="btn-down"></div>
+		</div>
+		<div id="game_server" class="item-wrap cancelRadius margin-1" style="display:none;">
+			<span>游戏服务器</span>
+		    <div class="item-out box">
+		        <div id="game_server_val">请选择</div>
+		    </div>
+		    <div class="btn-down"></div>
+		</div>
+		<div id="pay_type" class="item-wrap cancelRadius margin-1" style="display:none;">
+			<span>充值方式</span>
+		    <div class="item-out box">
+		        <div id="pay_type_val" class="box-f1 hideLong">请选择</div>
+		    </div>
+		    <div class="btn-down"></div>
+		</div>
+		<div class="data-line"></div>
+        <div id="pay_count" class="item-wrap cancelBorderBottom">
+        	<span>充值数量</span>
+		    <div class="item-out box">
+		        <div id="pay_count_val">请选择</div>
+		    </div>
+		    <div class="btn-down"></div>
+		</div>
+		<div id="pay_other_count" class="input-wrap cancelBorderBottom cancelRadiusTop" style="display:none;">
+			<span>其他数量</span>
+		    <div class="input-out">
+		        <input id="pay_other_count_val" type="text" maxlength="30" class="input-text" placeholder="">
+		    </div>
+		    <div class="btn-clear"></div>
+		</div>
+		<div class="tip3" id="tip3">
+			暂不支持该数量的充值，请根据输入框提示重新输入充值数量，谢谢！
+		</div>
+		<div id="pay_money" class="pay_money_css"  style="">
+                <span id="pay_money_val"></span> 元
+		</div>
+		<div class="input-wrap cancelRadiusTop greenBorder">
+			<span>顾客手机</span>
+		    <div class="input-out">
+		        <input id="mobile_zc" type="tel" maxlength="11" class="input-text" placeholder="选填">
+		    </div>
+		    <div class="btn-clear"></div>
+		</div>
+		<div class="phoneTips">
+		    系统自动向顾客发送短信交易凭证。
+		</div>
+
+    	
+	    <div class="line-box-wrap">
+            <div class="btn-common-wrap">
+                <button id="paybill_zc">确定</button>
+            </div>
+        </div>
+    </div>
+    <!--游戏直充页面 end-->
+
+	<div id="page_select_bank"></div>
+
+
+    <!-- 订单确认 start -->
+    <div class="page order_comfirm"  id="order_comfirm"></div>
+    <!-- 订单确认 end -->
+
+    <!-- 支付成功凭证 start -->
+    <div class="page floatPage"  id="page_float_dia">
+     	<div class="floatPage_content" id="floatPageContent"></div>
+    </div>
+    <!-- 支付成功凭证 end -->
+
+    <div id="card_pay_select"></div>
+	<div class="page LocalFloat" id="page_LocalHost">
+	</div>
+
+	
+    <script src="../lib/js/require.js?v=${online_version}"></script>
+    </body>
+ </html>
