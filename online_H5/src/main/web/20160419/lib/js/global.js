@@ -40,7 +40,7 @@ define({
      * ENV66
      */
     'ENV' : '${online_ENV}',   //接口请求环境变量
-    'isOnline' : true,  //是否在线部署  false就是离线的  true就是在线的
+    'isOnline' : '${project.isOnline.version}',  //是否在线部署  false就是离线的  true就是在线的
 
     /** Below is CPS Service name config */
     'CPS' : {

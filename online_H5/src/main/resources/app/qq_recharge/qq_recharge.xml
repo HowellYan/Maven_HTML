@@ -1,0 +1,28 @@
+
+<assembly>
+    <id>qq_recharge-${url}-${project.version}</id>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <formats>
+        <!-- zip,tar,tar.gz,tar.bz2,jar,dir,war -->
+        <format>zip</format>
+    </formats>
+
+    <!-- 需要打包的文件集 -->
+    <fileSets>
+        <fileSet>
+            <directory>target/offline_H5/${url}/qq_recharge</directory>
+            <outputDirectory>/qq_recharge</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>target/offline_H5/${url}/lib</directory>
+            <outputDirectory>/lib</outputDirectory>
+        </fileSet>
+    </fileSets>
+    <files>
+        <file>
+            <source>target/offline_H5/WEB-INF/classes/app/qq_recharge/MANIFEST.properties</source>
+            <outputDirectory>/</outputDirectory>
+        </file>
+    </files>
+</assembly>

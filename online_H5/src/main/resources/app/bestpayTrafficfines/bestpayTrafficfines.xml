@@ -1,0 +1,27 @@
+<assembly>
+    <id>bestpayTrafficfines-${url}-${project.version}</id>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <formats>
+        <!-- zip,tar,tar.gz,tar.bz2,jar,dir,war -->
+        <format>zip</format>
+    </formats>
+
+    <!-- 需要打包的文件集 -->
+    <fileSets>
+        <fileSet>
+            <directory>target/offline_H5/${url}/bestpayTrafficfines</directory>
+            <outputDirectory>/bestpayTrafficfines</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>target/offline_H5/${url}/lib</directory>
+            <outputDirectory>/lib</outputDirectory>
+        </fileSet>
+    </fileSets>
+    <files>
+        <file>
+            <source>target/offline_H5/WEB-INF/classes/app/bestpayTrafficfines/MANIFEST.properties</source>
+            <outputDirectory>/</outputDirectory>
+        </file>
+    </files>
+</assembly>

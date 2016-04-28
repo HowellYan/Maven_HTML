@@ -1,16 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>online_H5</groupId>
-  <artifactId>online_H5</artifactId>
+  <groupId>${project.warname.version}</groupId>
+  <artifactId>${project.warname.version}</artifactId>
   <packaging>war</packaging>
   <version>${project.pom.version}</version>
   <name>online_H5 Maven Webapp</name>
-  <url>http://maven.apache.org</url>
+
+  <url>20160419</url>
 
   <properties>
     <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
     <project.pom.version>1.0.0-${maven.build.timestamp}</project.pom.version>
+    <project.offline.version>4.0.0</project.offline.version>
+    <project.isOnline.version>true</project.isOnline.version>
+    <project.warname.version>online_H5</project.warname.version>
   </properties>
 
   <dependencies>
@@ -27,7 +31,7 @@
   </dependencies>
 
   <build>
-    <finalName>online_H5</finalName>
+    <finalName>${project.warname.version}</finalName>
     <resources>
       <resource>
         <directory>src/main/resources</directory>
@@ -106,11 +110,67 @@
       </plugin>
 
       <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.4.0</version>
+        <configuration>
+          <executable>java</executable>
+          <mainClass>com.bestpay.builder.MainToDir</mainClass>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <descriptors>
+            <descriptor>src/main/resources/app/bestpayrecharge/bestpayrecharge.xml</descriptor>
+            <descriptor>src/main/resources/app/bestpayTrafficfines/bestpayTrafficfines.xml</descriptor>
+            <descriptor>src/main/resources/app/Broadband/Broadband.xml</descriptor>
+            <descriptor>src/main/resources/app/gameRecharge/gameRecharge.xml</descriptor>
+            <descriptor>src/main/resources/app/phoneRecharge/phoneRecharge.xml</descriptor>
+            <descriptor>src/main/resources/app/prepaidRecharge/prepaidRecharge.xml</descriptor>
+            <descriptor>src/main/resources/app/qq_recharge/qq_recharge.xml</descriptor>
+            <descriptor>src/main/resources/app/SDMpay/SDMpay.xml</descriptor>
+          </descriptors>
+        </configuration>
+      </plugin>
+
+
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <version>2.3</version>
-        <configuration></configuration>
+        <configuration>
+          <warName>${project.warname.version}</warName>
+        </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>pl.project13.maven</groupId>
+        <artifactId>git-commit-id-plugin</artifactId>
+        <version>2.2.1</version>
+        <executions>
+          <execution>
+            <!--<phase>process-resources</phase>-->
+            <goals>
+              <goal>revision</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <!--日期格式;默认值:dd.MM.yyyy '@' HH:mm:ss z;-->
+          <dateFormat>yyyyMMddHHmmss</dateFormat>
+          <!-- ".git"文件路径;默认值:${project.basedir}/.git; -->
+          <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+          <!--若项目打包类型为pom,是否取消构建;默认值:true;-->
+          <skipPoms>false</skipPoms>
+          <!--是否生成"git.properties"文件;默认值:false;-->
+          <generateGitPropertiesFile>false</generateGitPropertiesFile>
+        </configuration>
+      </plugin>
+
 
     </plugins>
   </build>

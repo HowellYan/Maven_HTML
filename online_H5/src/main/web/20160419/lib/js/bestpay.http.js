@@ -420,7 +420,7 @@ define(['bestpay.lang'], function(Lang) {
 		var origin = location.origin;
 		if(config.ENV === 'PRODUCT'){ 
 			//生产环境
-            if(config.isOnline == false){
+            if(config.isOnline == 'false'){
                 origin = "http://183.63.191.7:9009";
             }
 			url = origin + "/online_h5/pluginRAB";
@@ -675,7 +675,7 @@ define(['bestpay.lang'], function(Lang) {
             }
         }
         //Offline Deployment
-        if(config.isOnline == false){
+        if(config.isOnline == 'false'){
             url_cps = config.URLCPS[config.ENV];
             if (typeof url_cps !== 'string') {
                 url_cps = config.URLCPS.PUBLIC;
